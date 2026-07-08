@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio Hendy Rachmady</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>I'm, <span>Designer</span></h1>
+
+        <hr />
+
+        <div class="foto-profil">
+            <img src="Profil.jpeg" alt="Foto Hendy Rachmady" onclick="bukaLightbox('Profil.jpeg')" />
+        </div>
+
+        <hr />
+
+        <!-- Perkenalan -->
+        <h2>Tentang Saya</h2>
+        <p>
+            Perkenalkan, saya <strong>Hendy Rachmady</strong>, mahasiswa 
+            <strong>Teknik Informatika Universitas Islam Riau</strong> sekaligus 
+            <strong>Student Designer</strong>. Saya memiliki minat dalam dunia desain visual 
+            dan teknologi, serta terus belajar untuk menghasilkan karya yang kreatif, 
+            inovatif, dan bermanfaat.
+        </p>
+
+        <hr />
+
+        <!-- Identitas -->
+        <h2>Identitas</h2>
+        <ul>
+            <li><strong>Nama:</strong> Hendy Rachmady</li>
+            <li><strong>Peran:</strong> Designer</li>
+        </ul>
+
+        <hr />
+
+        <!-- Keahlian di Bidang Teknologi -->
+        <h2>Keahlian di Bidang Teknologi</h2>
+        <ul>
+            <li>Desain Visual (UI/UX, Branding, Tipografi)</li>
+            <li>Kreativitas & Inovasi dalam Teknologi</li>
+        </ul>
+
+        <hr />
+
+        <!-- Keahlian di Luar Teknologi -->
+        <h2>Bakat di Luar Teknologi</h2>
+        <ul>
+            <li>Menggambar Animasi 2D</li>
+            <li>Ilustrasi Digital</li>
+            <li>Storyboard Artist</li>
+        </ul>
+
+        <br />
+
+        <p><strong>Berikut hasil karya saya:</strong></p>
+
+        <div class="karya-container">
+            <img src="gambar1.jpeg" alt="Karya Animasi 2D" onclick="bukaLightbox('gambar1.jpeg')" />
+            <img src="gambar2.jpeg" alt="Karya Animasi 2D" onclick="bukaLightbox('gambar2.jpeg')" />
+            <img src="gambar3.jpeg" alt="Karya Animasi 2D" onclick="bukaLightbox('gambar3.jpeg')" />
+            <img src="gambar4.jpeg" alt="Karya Animasi 2D" onclick="bukaLightbox('gambar4.jpeg')" />
+            <img src="gambar5.jpeg" alt="Karya Animasi 2D" onclick="bukaLightbox('gambar5.jpeg')" />
+        </div>
+
+        <hr />
+
+        <!-- ====== MENU MUSIK ====== -->
+        <div class="menu-musik">
+            <h2> DAFTAR LAGU</h2>
+
+            <!-- ENHYPEN Section -->
+            <div class="menu-section">
+                <h3 class="section-title"> ENHYPEN</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <span class="menu-name">SHOUT OUT</span>
+                        <button class="btn-play" onclick="putarLagu('ENHYPEN - SHOUT OUT [320 kbps].mp3', 'SHOUT OUT')">▶ Play</button>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">Helium</span>
+                        <button class="btn-play" onclick="putarLagu('ENHYPEN - Helium [320 kbps].mp3', 'Helium')">▶ Play</button>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">Highway 1009</span>
+                        <button class="btn-play" onclick="putarLagu('ENHYPEN - Highway 1009 [320 kbps].mp3', 'Highway 1009')">▶ Play</button>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">Moonstruck</span>
+                        <button class="btn-play" onclick="putarLagu('ENHYPEN - Moonstruck [320 kbps].mp3', 'Moonstruck')">▶ Play</button>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">Fate</span>
+                        <button class="btn-play" onclick="putarLagu('ENHYPEN - Fate [321 kbps].mp3', 'Fate')">▶ Play</button>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">Fatal Trouble</span>
+                        <button class="btn-play" onclick="putarLagu('ENHYPEN - Fatal Trouble [320 kbps].mp3', 'Fatal Trouble')">▶ Play</button>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">Drunk-Dazed</span>
+                        <button class="btn-play" onclick="putarLagu('ENHYPEN - Drunk-Dazed [129 kbps].mp3', 'Drunk-Dazed')">▶ Play</button>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">Knife</span>
+                        <button class="btn-play" onclick="putarLagu('ENHYPEN - Knife [321 kbps].mp3', 'Knife')">▶ Play</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AESPA Section -->
+            <div class="menu-section">
+                <h3 class="section-title"> AESPA</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <span class="menu-name">UP (KARINA Solo)</span>
+                        <button class="btn-play" onclick="putarLagu('aespa - UP (KARINA Solo) [320 kbps].mp3', 'UP (KARINA Solo)')">▶ Play</button>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">Spark (WINTER Solo)</span>
+                        <button class="btn-play" onclick="putarLagu('aespa - Spark (WINTER Solo) [320 kbps].mp3', 'Spark (WINTER Solo)')">▶ Play</button>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">Live My Life</span>
+                        <button class="btn-play" onclick="putarLagu('aespa - Live My Life [320 kbps].mp3', 'Live My Life')">▶ Play</button>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">Drama</span>
+                        <button class="btn-play" onclick="putarLagu('aespa - Drama [321 kbps].mp3', 'Drama')">▶ Play</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hearts2Hearts Section -->
+            <div class="menu-section">
+                <h3 class="section-title"> Hearts2Hearts</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <span class="menu-name">FOCUS</span>
+                        <button class="btn-play" onclick="putarLagu('Hearts2Hearts - FOCUS [321 kbps].mp3', 'FOCUS')">▶ Play</button>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">Lemon Tang</span>
+                        <button class="btn-play" onclick="putarLagu('Hearts2Hearts - Lemon Tang [321 kbps].mp3', 'Lemon Tang')">▶ Play</button>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">RUDE!</span>
+                        <button class="btn-play" onclick="putarLagu('Hearts2Hearts - RUDE! [321 kbps].mp3', 'RUDE!')">▶ Play</button>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">STYLE</span>
+                        <button class="btn-play" onclick="putarLagu('Hearts2Hearts - STYLE [320 kbps].mp3', 'STYLE')">▶ Play</button>
+                    </div>
+                    <div class="menu-item">
+                        <span class="menu-name">The Chase</span>
+                        <button class="btn-play" onclick="putarLagu('Hearts2Hearts - The Chase [320 kbps].mp3', 'The Chase')">▶ Play</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Audio Player -->
+            <div class="audio-section">
+                <p><strong>Sedang diputar:</strong> <span id="laguSedangDiputar">Belum ada lagu</span></p>
+                <audio id="audioPlayer" controls>
+                    <source id="audioSource" src="" type="audio/mpeg" />
+                    Browser Anda tidak mendukung pemutar audio.
+                </audio>
+            </div>
+        </div>
+
+        <hr />
+
+        <!-- Kontak -->
+        <h2>Kontak</h2>
+        <div class="kontak-container">
+            <div class="kontak-item">
+                <a href="mailto:hendirahcmadi@email.com">📧 hendirahcmadi@email.com</a>
+            </div>
+            <div class="kontak-item">
+                <a href="https://www.instagram.com/hndyrch_?igsh=NHF5NnB6MWM1bGQ0" target="_blank">📸 @hndyrch_</a>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="footer">
+            &copy; 2026 <span>Hendy Rachmady</span> – Student Designer
+        </div>
+
+    </div>
+
+    <!-- Lightbox / Popup Gambar -->
+    <div id="lightbox" class="lightbox" onclick="tutupLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightboxImg" src="" alt="Gambar" />
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // ============ FUNGSI MUSIK ============
+        function putarLagu(namaFile, judulLagu) {
+            var audio = document.getElementById('audioPlayer');
+            var source = document.getElementById('audioSource');
+            var sedangDiputar = document.getElementById('laguSedangDiputar');
+
+            audio.pause();
+            source.src = namaFile;
+            audio.load();
+            audio.play();
+            sedangDiputar.textContent = judulLagu;
+        }
+
+        // ============ FUNGSI LIGHTBOX ============
+        function bukaLightbox(src) {
+            var lightbox = document.getElementById('lightbox');
+            var img = document.getElementById('lightboxImg');
+            var caption = document.getElementById('lightboxCaption');
+
+            lightbox.style.display = 'flex';
+            img.src = src;
+            var namaFile = src.split('/').pop();
+            caption.textContent = namaFile;
+        }
+
+        function tutupLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                tutupLightbox();
+            }
+        });
+    </script>
+
+</body>
+</html>

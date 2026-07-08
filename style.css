@@ -1,0 +1,908 @@
+/* ========== RESET & GLOBAL ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f3f0 0%, #e8e0d8 100%);
+    color: #2d2d2d;
+    line-height: 1.7;
+    padding: clamp(12px, 3vw, 30px) clamp(10px, 3vw, 20px);
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+/* ========== CONTAINER UTAMA ========== */
+.container {
+    max-width: 950px;
+    margin: 0 auto;
+    background: rgba(249, 247, 245, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: clamp(20px, 4vw, 45px) clamp(16px, 4vw, 55px);
+    border-radius: clamp(16px, 3vw, 24px);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(230, 222, 216, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 70% 30%, rgba(217, 108, 43, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* ========== HEADING ========== */
+h1 {
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #2d2d2d;
+    margin-bottom: 8px;
+    position: relative;
+    text-align: center;
+    word-break: break-word;
+}
+
+h1 span {
+    font-weight: 800;
+    background: linear-gradient(135deg, #d96c2b, #e88a4a, #d96c2b);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 4s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+h2 {
+    font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+    font-weight: 700;
+    color: #2d2d2d;
+    margin-top: clamp(25px, 5vw, 35px);
+    margin-bottom: clamp(12px, 2.5vw, 15px);
+    letter-spacing: 0.5px;
+    position: relative;
+    text-align: center;
+    padding: 0 20px;
+    display: inline-block;
+    width: 100%;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -8px;
+    width: clamp(30px, 8vw, 60px);
+    height: 4px;
+    background: linear-gradient(to right, #d96c2b, #e88a4a);
+    border-radius: 10px;
+}
+
+/* ========== HR ========== */
+hr {
+    border: none;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #d96c2b, #e88a4a, #d96c2b, transparent);
+    margin: clamp(20px, 5vw, 32px) 0;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+hr::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* ========== PARAGRAF ========== */
+p {
+    margin-bottom: 14px;
+    color: #444;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    text-align: justify;
+    word-break: break-word;
+}
+
+strong {
+    color: #d96c2b;
+    font-weight: 700;
+    position: relative;
+}
+
+/* ========== LIST ========== */
+ul {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: 12px;
+}
+
+ul li {
+    padding: clamp(12px, 2vw, 14px) clamp(16px, 2.5vw, 20px);
+    background: rgba(245, 242, 238, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 14px;
+    border: 1px solid rgba(230, 222, 216, 0.5);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #3f3f3f;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
+    word-break: break-word;
+}
+
+ul li:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 12px 30px rgba(217, 108, 43, 0.12);
+    border-color: #d96c2b;
+    background: rgba(249, 247, 245, 0.9);
+}
+
+ul li strong {
+    color: #d96c2b;
+    font-weight: 700;
+}
+
+/* ========== FOTO PROFIL ========== */
+.foto-profil {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+.foto-profil::after {
+    content: '✦';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: #d96c2b;
+    opacity: 0.3;
+}
+
+.foto-profil img {
+    width: clamp(140px, 30vw, 200px);
+    height: clamp(140px, 30vw, 200px);
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid rgba(217, 108, 43, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.foto-profil img:hover {
+    transform: scale(1.05) rotate(-3deg);
+    box-shadow: 0 20px 60px rgba(217, 108, 43, 0.25);
+    border-color: #d96c2b;
+}
+
+.foto-profil img:active {
+    transform: scale(0.95);
+}
+
+/* ========== GALERI KARYA ========== */
+.karya-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
+    gap: clamp(12px, 2vw, 18px);
+    margin-top: 15px;
+}
+
+.karya-container img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 2px solid rgba(230, 222, 216, 0.5);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.karya-container img:hover {
+    transform: scale(1.06) translateY(-6px);
+    box-shadow: 0 16px 40px rgba(217, 108, 43, 0.18);
+    border-color: #d96c2b;
+}
+
+.karya-container img:active {
+    transform: scale(0.95);
+}
+
+/* ========== MENU MUSIK ========== */
+.menu-musik {
+    margin: 15px 0 25px;
+}
+
+.menu-subtitle {
+    text-align: center;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    font-weight: 300;
+    color: #888;
+    margin-bottom: 30px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.menu-section {
+    margin-bottom: 30px;
+    background: rgba(245, 242, 238, 0.4);
+    padding: clamp(15px, 3vw, 20px) clamp(15px, 3vw, 25px);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(230, 222, 216, 0.3);
+    transition: all 0.3s ease;
+}
+
+.menu-section:hover {
+    background: rgba(245, 242, 238, 0.6);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.section-title {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-weight: 700;
+    color: #d96c2b;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(217, 108, 43, 0.15);
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.section-title::after {
+    content: '';
+    flex: 0 1 clamp(20px, 10vw, 80px);
+    height: 1px;
+    background: linear-gradient(to right, rgba(217, 108, 43, 0.2), transparent);
+}
+
+.section-title::before {
+    content: '';
+    flex: 0 1 clamp(20px, 10vw, 80px);
+    height: 1px;
+    background: linear-gradient(to left, rgba(217, 108, 43, 0.2), transparent);
+}
+
+/* ========== MENU GRID ========== */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: clamp(10px, 1.5vw, 12px);
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(12px, 1.8vw, 14px) clamp(14px, 2vw, 18px);
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    border: 2px solid rgba(217, 108, 43, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    gap: 10px;
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 8px 25px rgba(217, 108, 43, 0.12);
+    border-color: #d96c2b;
+}
+
+.menu-item:active {
+    transform: scale(0.98);
+}
+
+.menu-name {
+    font-size: clamp(0.8rem, 1.8vw, 1rem);
+    color: #2d2d2d;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.3px;
+    word-break: break-word;
+}
+
+.menu-name::before {
+    content: '♪';
+    color: #d96c2b;
+    opacity: 0.6;
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    flex-shrink: 0;
+}
+
+.menu-item .btn-play {
+    background: linear-gradient(135deg, #d96c2b, #c45a1f);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    padding: clamp(8px, 1.5vw, 6px) clamp(16px, 2.5vw, 18px);
+    border-radius: 20px;
+    font-size: clamp(0.7rem, 1.4vw, 0.75rem);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 3px 12px rgba(217, 108, 43, 0.2);
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    min-height: 38px;
+    min-width: 70px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.menu-item .btn-play::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.menu-item .btn-play:hover::before {
+    left: 100%;
+}
+
+.menu-item .btn-play:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(217, 108, 43, 0.35);
+    background: linear-gradient(135deg, #e88a4a, #d96c2b);
+}
+
+.menu-item .btn-play:active {
+    transform: translateY(0px) scale(0.95);
+}
+
+/* ========== AUDIO PLAYER ========== */
+.audio-section {
+    background: linear-gradient(135deg, rgba(245, 242, 238, 0.8), rgba(249, 247, 245, 0.9));
+    padding: clamp(18px, 3vw, 25px) clamp(16px, 3vw, 30px);
+    border-radius: 20px;
+    border: 2px solid rgba(217, 108, 43, 0.15);
+    margin-top: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.audio-section p {
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #3f3f3f;
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    text-align: center;
+}
+
+#laguSedangDiputar {
+    color: #d96c2b;
+    font-weight: 700;
+    padding: 4px 16px;
+    background: rgba(217, 108, 43, 0.08);
+    border-radius: 20px;
+    display: inline-block;
+    word-break: break-word;
+}
+
+audio {
+    width: 100%;
+    max-width: 500px;
+    margin: 10px auto 0;
+    border-radius: 30px;
+    background: #e6ded8;
+    height: 45px;
+    display: block;
+}
+
+audio::-webkit-media-controls-panel {
+    background: linear-gradient(to right, #e6ded8, #f5f2ee);
+}
+
+/* ========== KONTAK ========== */
+.kontak-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(10px, 2vw, 15px);
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.kontak-item {
+    background: linear-gradient(135deg, rgba(245, 242, 238, 0.7), rgba(249, 247, 245, 0.9));
+    padding: clamp(12px, 2vw, 14px) clamp(20px, 4vw, 32px);
+    border-radius: 50px;
+    border: 1px solid rgba(230, 222, 216, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    display: inline-flex;
+    align-items: center;
+    flex: 0 1 auto;
+}
+
+.kontak-item:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(217, 108, 43, 0.12);
+    border-color: #d96c2b;
+    background: rgba(249, 247, 245, 0.95);
+}
+
+.kontak-item:active {
+    transform: scale(0.95);
+}
+
+.kontak-item a {
+    text-decoration: none;
+    color: #3f3f3f;
+    font-weight: 500;
+    font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    word-break: break-word;
+}
+
+.kontak-item a:hover {
+    color: #d96c2b;
+}
+
+.kontak-container .kontak-item {
+    list-style: none;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    text-align: center;
+    font-size: clamp(0.85rem, 1.6vw, 1rem);
+    color: #888;
+    padding-top: 10px;
+    letter-spacing: 0.5px;
+}
+
+.footer span {
+    color: #d96c2b;
+    font-weight: 700;
+}
+
+/* ========== LIGHTBOX ========== */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 18, 16, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: clamp(16px, 4vw, 30px);
+}
+
+.lightbox-content {
+    max-width: 92%;
+    max-height: 80vh;
+    max-height: 80dvh;
+    border-radius: 20px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+    border: 3px solid rgba(230, 222, 216, 0.2);
+    object-fit: contain;
+    animation: zoomIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.lightbox-caption {
+    color: #f0ece8;
+    background: rgba(50, 46, 42, 0.6);
+    padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 32px);
+    border-radius: 50px;
+    font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+    margin-top: 20px;
+    max-width: 85%;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(230, 222, 216, 0.15);
+    word-break: break-word;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: clamp(16px, 4vw, 30px);
+    right: clamp(16px, 4vw, 40px);
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 300;
+    color: #e6ded8;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    line-height: 1;
+    width: clamp(44px, 8vw, 60px);
+    height: clamp(44px, 8vw, 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.lightbox-close:hover {
+    color: #d96c2b;
+    transform: rotate(90deg);
+    background: rgba(217, 108, 43, 0.15);
+}
+
+.lightbox-close:active {
+    transform: rotate(90deg) scale(0.9);
+}
+
+/* ========== RESPONSIVE - TABLET ========== */
+@media (max-width: 900px) {
+    .menu-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    }
+}
+
+/* ========== RESPONSIVE - HP BESAR & TABLET KECIL ========== */
+@media (max-width: 768px) {
+    .container {
+        padding: 25px 20px;
+        border-radius: 18px;
+    }
+    
+    ul {
+        grid-template-columns: 1fr;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .menu-section {
+        padding: 15px 14px;
+    }
+    
+    .section-title::before,
+    .section-title::after {
+        flex: 0 1 30px;
+    }
+    
+    .kontak-container {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+    
+    .kontak-item {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 20px;
+    }
+    
+    audio {
+        max-width: 100%;
+    }
+    
+    .lightbox-content {
+        max-width: 95%;
+        max-height: 70vh;
+        max-height: 70dvh;
+    }
+    
+    .karya-container {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 120px), 1fr));
+        gap: 12px;
+    }
+}
+
+/* ========== RESPONSIVE - HP KECIL ========== */
+@media (max-width: 480px) {
+    body {
+        padding: 8px 6px;
+    }
+    
+    .container {
+        padding: 16px 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(230, 222, 216, 0.3);
+    }
+    
+    ul li {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+    }
+    
+    .karya-container {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 100px), 1fr));
+        gap: 10px;
+    }
+    
+    .menu-item {
+        padding: 10px 12px;
+        flex-wrap: nowrap;
+    }
+    
+    .menu-item .btn-play {
+        padding: 8px 12px;
+        font-size: 0.65rem;
+        min-height: 34px;
+        min-width: 60px;
+    }
+    
+    .menu-name {
+        font-size: 0.78rem;
+    }
+    
+    .audio-section {
+        padding: 14px 12px;
+    }
+    
+    .audio-section p {
+        font-size: 0.85rem;
+    }
+    
+    #laguSedangDiputar {
+        font-size: 0.8rem;
+        padding: 3px 12px;
+    }
+    
+    audio {
+        height: 40px;
+    }
+    
+    .section-title::before,
+    .section-title::after {
+        flex: 0 1 15px;
+    }
+    
+    .section-title {
+        font-size: 0.95rem;
+        gap: 6px;
+    }
+    
+    .kontak-item a {
+        font-size: 0.85rem;
+    }
+    
+    .lightbox-close {
+        width: 40px;
+        height: 40px;
+        font-size: 2rem;
+        top: 12px;
+        right: 12px;
+    }
+    
+    .lightbox-caption {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+        max-width: 92%;
+    }
+}
+
+/* ========== RESPONSIVE - HP SANGAT KECIL ========== */
+@media (max-width: 360px) {
+    .container {
+        padding: 12px 8px;
+        border-radius: 10px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+    
+    h2::before {
+        width: 25px;
+        height: 3px;
+    }
+    
+    .foto-profil img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .karya-container {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 80px), 1fr));
+        gap: 8px;
+    }
+    
+    .menu-item .btn-play {
+        min-height: 30px;
+        min-width: 50px;
+        padding: 6px 10px;
+        font-size: 0.6rem;
+    }
+    
+    .menu-name {
+        font-size: 0.7rem;
+    }
+    
+    .menu-section {
+        padding: 10px 8px;
+    }
+}
+
+/* ========== ORIENTATION - LANDSCAPE HP ========== */
+@media (max-height: 500px) and (orientation: landscape) {
+    .container {
+        padding: 16px 20px;
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+        margin-bottom: 4px;
+    }
+    
+    h2 {
+        margin-top: 16px;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+    }
+    
+    .foto-profil img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .foto-profil {
+        margin: 10px 0;
+    }
+    
+    hr {
+        margin: 14px 0;
+    }
+    
+    ul li {
+        padding: 8px 14px;
+    }
+    
+    .menu-section {
+        padding: 10px 14px;
+        margin-bottom: 14px;
+    }
+    
+    .menu-grid {
+        gap: 6px;
+    }
+    
+    .menu-item {
+        padding: 8px 12px;
+    }
+    
+    .audio-section {
+        padding: 12px 16px;
+        margin-top: 14px;
+    }
+    
+    audio {
+        height: 36px;
+    }
+    
+    .karya-container {
+        gap: 8px;
+    }
+    
+    .karya-container img {
+        border-radius: 10px;
+    }
+}
+
+/* ========== TOUCH DEVICE OPTIMIZATION ========== */
+@media (hover: none) {
+    .menu-item:hover {
+        transform: none;
+        background: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+    
+    .menu-item .btn-play:hover {
+        transform: none;
+        background: linear-gradient(135deg, #d96c2b, #c45a1f);
+        box-shadow: 0 3px 12px rgba(217, 108, 43, 0.2);
+    }
+    
+    .menu-item .btn-play:active {
+        transform: scale(0.92);
+    }
+    
+    .foto-profil img:hover {
+        transform: none;
+    }
+    
+    .foto-profil img:active {
+        transform: scale(0.95);
+    }
+    
+    .kontak-item:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .kontak-item:active {
+        transform: scale(0.95);
+    }
+    
+    .karya-container img:hover {
+        transform: none;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+    
+    .karya-container img:active {
+        transform: scale(0.95);
+    }
+    
+    ul li:hover {
+        transform: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+}
