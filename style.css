@@ -262,6 +262,62 @@ ul li strong {
     text-transform: uppercase;
 }
 
+/* ========== INSPIRASI MUSIK ========== */
+.musik-inspirasi {
+    background: linear-gradient(135deg, rgba(217, 108, 43, 0.06), rgba(232, 138, 74, 0.10));
+    padding: clamp(18px, 3vw, 28px) clamp(16px, 3vw, 30px);
+    border-radius: 18px;
+    border-left: 4px solid #d96c2b;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.musik-inspirasi::before {
+    content: '🎵';
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-size: clamp(3rem, 8vw, 5rem);
+    opacity: 0.08;
+    transform: rotate(15deg);
+}
+
+.quote-musik {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: #444;
+    line-height: 1.8;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+.quote-musik span {
+    color: #d96c2b;
+    font-weight: 700;
+    font-style: normal;
+    display: block;
+    margin-top: 8px;
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+}
+
+/* Responsive untuk kutipan */
+@media (max-width: 480px) {
+    .musik-inspirasi {
+        padding: 14px 14px;
+        border-left-width: 3px;
+    }
+    
+    .quote-musik {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    
+    .quote-musik span {
+        font-size: 0.95rem;
+    }
+}
+
 .menu-section {
     margin-bottom: 30px;
     background: rgba(245, 242, 238, 0.4);
