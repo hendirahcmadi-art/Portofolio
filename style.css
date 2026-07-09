@@ -18,6 +18,18 @@ body {
     padding: clamp(12px, 3vw, 30px) clamp(10px, 3vw, 20px);
     min-height: 100vh;
     min-height: 100dvh;
+    animation: fadeInBody 1s ease-out;
+}
+
+@keyframes fadeInBody {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ========== CONTAINER UTAMA ========== */
@@ -35,6 +47,18 @@ body {
     border: 1px solid rgba(230, 222, 216, 0.5);
     position: relative;
     overflow: hidden;
+    animation: slideUp 1s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .container::before {
@@ -58,6 +82,18 @@ h1 {
     position: relative;
     text-align: center;
     word-break: break-word;
+    animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h1 span {
@@ -67,12 +103,21 @@ h1 span {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradientShift 4s ease-in-out infinite;
+    animation: gradientShift 4s ease-in-out infinite, pulseGlow 3s ease-in-out infinite;
 }
 
 @keyframes gradientShift {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
+}
+
+@keyframes pulseGlow {
+    0%, 100% { 
+        filter: drop-shadow(0 0 5px rgba(217, 108, 43, 0.1));
+    }
+    50% { 
+        filter: drop-shadow(0 0 20px rgba(217, 108, 43, 0.3));
+    }
 }
 
 h2 {
@@ -87,6 +132,25 @@ h2 {
     padding: 0 20px;
     display: inline-block;
     width: 100%;
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+h2:nth-of-type(1) { animation-delay: 0.1s; }
+h2:nth-of-type(2) { animation-delay: 0.2s; }
+h2:nth-of-type(3) { animation-delay: 0.3s; }
+h2:nth-of-type(4) { animation-delay: 0.4s; }
+h2:nth-of-type(5) { animation-delay: 0.5s; }
+h2:nth-of-type(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h2::before {
@@ -99,6 +163,16 @@ h2::before {
     height: 4px;
     background: linear-gradient(to right, #d96c2b, #e88a4a);
     border-radius: 10px;
+    animation: expandWidth 1.5s ease-out;
+}
+
+@keyframes expandWidth {
+    from {
+        width: 0;
+    }
+    to {
+        width: clamp(30px, 8vw, 60px);
+    }
 }
 
 /* ========== HR ========== */
@@ -110,6 +184,16 @@ hr {
     border-radius: 10px;
     position: relative;
     overflow: hidden;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 hr::after {
@@ -135,12 +219,20 @@ p {
     font-size: clamp(0.95rem, 2vw, 1.05rem);
     text-align: justify;
     word-break: break-word;
+    animation: fadeIn 1.2s ease-out;
 }
 
 strong {
     color: #d96c2b;
     font-weight: 700;
     position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+strong:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 20px rgba(217, 108, 43, 0.2);
 }
 
 /* ========== LIST ========== */
@@ -163,7 +255,15 @@ ul li {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
     font-size: clamp(0.9rem, 1.8vw, 1rem);
     word-break: break-word;
+    animation: fadeInUp 0.8s ease-out both;
 }
+
+ul li:nth-child(1) { animation-delay: 0.1s; }
+ul li:nth-child(2) { animation-delay: 0.2s; }
+ul li:nth-child(3) { animation-delay: 0.3s; }
+ul li:nth-child(4) { animation-delay: 0.4s; }
+ul li:nth-child(5) { animation-delay: 0.5s; }
+ul li:nth-child(6) { animation-delay: 0.6s; }
 
 ul li:hover {
     transform: translateY(-4px) scale(1.01);
@@ -182,6 +282,7 @@ ul li strong {
     text-align: center;
     margin: 20px 0;
     position: relative;
+    animation: fadeIn 1.5s ease-out;
 }
 
 .foto-profil::after {
@@ -193,6 +294,18 @@ ul li strong {
     font-size: 1.5rem;
     color: #d96c2b;
     opacity: 0.3;
+    animation: twinkle 2s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { 
+        opacity: 0.3;
+        transform: translateX(-50%) scale(1);
+    }
+    50% { 
+        opacity: 0.8;
+        transform: translateX(-50%) scale(1.2);
+    }
 }
 
 .foto-profil img {
@@ -205,12 +318,23 @@ ul li strong {
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .foto-profil img:hover {
     transform: scale(1.05) rotate(-3deg);
     box-shadow: 0 20px 60px rgba(217, 108, 43, 0.25);
     border-color: #d96c2b;
+    animation-play-state: paused;
 }
 
 .foto-profil img:active {
@@ -235,10 +359,20 @@ ul li strong {
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     -webkit-tap-highlight-color: transparent;
+    animation: fadeInUp 0.8s ease-out both;
 }
 
+.karya-container img:nth-child(1) { animation-delay: 0.1s; }
+.karya-container img:nth-child(2) { animation-delay: 0.2s; }
+.karya-container img:nth-child(3) { animation-delay: 0.3s; }
+.karya-container img:nth-child(4) { animation-delay: 0.4s; }
+.karya-container img:nth-child(5) { animation-delay: 0.5s; }
+.karya-container img:nth-child(6) { animation-delay: 0.6s; }
+.karya-container img:nth-child(7) { animation-delay: 0.7s; }
+.karya-container img:nth-child(8) { animation-delay: 0.8s; }
+
 .karya-container img:hover {
-    transform: scale(1.06) translateY(-6px);
+    transform: scale(1.06) translateY(-6px) rotate(1deg);
     box-shadow: 0 16px 40px rgba(217, 108, 43, 0.18);
     border-color: #d96c2b;
 }
@@ -271,6 +405,13 @@ ul li strong {
     margin-bottom: 25px;
     position: relative;
     overflow: hidden;
+    animation: fadeInUp 1s ease-out;
+    transition: all 0.5s ease;
+}
+
+.musik-inspirasi:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 30px rgba(217, 108, 43, 0.08);
 }
 
 .musik-inspirasi::before {
@@ -281,6 +422,16 @@ ul li strong {
     font-size: clamp(3rem, 8vw, 5rem);
     opacity: 0.08;
     transform: rotate(15deg);
+    animation: rotateSlow 20s linear infinite;
+}
+
+@keyframes rotateSlow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .quote-musik {
@@ -299,6 +450,7 @@ ul li strong {
     display: block;
     margin-top: 8px;
     font-size: clamp(1rem, 2.2vw, 1.2rem);
+    animation: fadeInUp 1.5s ease-out;
 }
 
 /* Responsive untuk kutipan */
@@ -326,11 +478,17 @@ ul li strong {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(230, 222, 216, 0.3);
     transition: all 0.3s ease;
+    animation: fadeInUp 0.8s ease-out both;
 }
+
+.menu-section:nth-child(2) { animation-delay: 0.2s; }
+.menu-section:nth-child(3) { animation-delay: 0.4s; }
+.menu-section:nth-child(4) { animation-delay: 0.6s; }
 
 .menu-section:hover {
     background: rgba(245, 242, 238, 0.6);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
 }
 
 .section-title {
@@ -347,6 +505,11 @@ ul li strong {
     gap: 10px;
     text-align: center;
     flex-wrap: wrap;
+    transition: all 0.3s ease;
+}
+
+.section-title:hover {
+    letter-spacing: 2px;
 }
 
 .section-title::after {
@@ -381,7 +544,16 @@ ul li strong {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     gap: 10px;
+    animation: fadeIn 0.8s ease-out both;
 }
+
+.menu-item:nth-child(1) { animation-delay: 0.1s; }
+.menu-item:nth-child(2) { animation-delay: 0.2s; }
+.menu-item:nth-child(3) { animation-delay: 0.3s; }
+.menu-item:nth-child(4) { animation-delay: 0.4s; }
+.menu-item:nth-child(5) { animation-delay: 0.5s; }
+.menu-item:nth-child(6) { animation-delay: 0.6s; }
+.menu-item:nth-child(7) { animation-delay: 0.7s; }
 
 .menu-item:hover {
     background: rgba(255, 255, 255, 0.95);
@@ -403,6 +575,11 @@ ul li strong {
     gap: 8px;
     letter-spacing: 0.3px;
     word-break: break-word;
+    transition: all 0.3s ease;
+}
+
+.menu-item:hover .menu-name {
+    color: #d96c2b;
 }
 
 .menu-name::before {
@@ -411,6 +588,18 @@ ul li strong {
     opacity: 0.6;
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
     flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
 }
 
 .menu-item .btn-play {
@@ -459,6 +648,19 @@ ul li strong {
     transform: translateY(0px) scale(0.95);
 }
 
+@keyframes pulseButton {
+    0%, 100% {
+        box-shadow: 0 3px 12px rgba(217, 108, 43, 0.2);
+    }
+    50% {
+        box-shadow: 0 3px 25px rgba(217, 108, 43, 0.4);
+    }
+}
+
+.menu-item .btn-play:focus {
+    animation: pulseButton 2s ease-in-out infinite;
+}
+
 /* ========== AUDIO PLAYER ========== */
 .audio-section {
     background: linear-gradient(135deg, rgba(245, 242, 238, 0.8), rgba(249, 247, 245, 0.9));
@@ -473,6 +675,13 @@ ul li strong {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    animation: fadeInUp 1s ease-out;
+    transition: all 0.5s ease;
+}
+
+.audio-section:hover {
+    border-color: #d96c2b;
+    box-shadow: 0 8px 40px rgba(217, 108, 43, 0.08);
 }
 
 .audio-section p {
@@ -491,6 +700,11 @@ ul li strong {
     border-radius: 20px;
     display: inline-block;
     word-break: break-word;
+    transition: all 0.3s ease;
+}
+
+#laguSedangDiputar:not(:empty) {
+    animation: fadeInUp 0.5s ease-out;
 }
 
 audio {
@@ -501,6 +715,11 @@ audio {
     background: #e6ded8;
     height: 45px;
     display: block;
+    transition: all 0.3s ease;
+}
+
+audio:hover {
+    box-shadow: 0 4px 20px rgba(217, 108, 43, 0.1);
 }
 
 audio::-webkit-media-controls-panel {
@@ -527,7 +746,11 @@ audio::-webkit-media-controls-panel {
     display: inline-flex;
     align-items: center;
     flex: 0 1 auto;
+    animation: fadeInUp 0.8s ease-out both;
 }
+
+.kontak-item:nth-child(1) { animation-delay: 0.2s; }
+.kontak-item:nth-child(2) { animation-delay: 0.4s; }
 
 .kontak-item:hover {
     transform: translateY(-3px) scale(1.02);
@@ -548,7 +771,7 @@ audio::-webkit-media-controls-panel {
     transition: color 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     word-break: break-word;
 }
 
@@ -560,6 +783,20 @@ audio::-webkit-media-controls-panel {
     list-style: none;
 }
 
+/* ========== IKON KONTAK ========== */
+.icon-kontak {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    stroke: #555;
+}
+
+.kontak-item:hover .icon-kontak {
+    transform: scale(1.1) rotate(-5deg);
+    stroke: #d96c2b;
+}
+
 /* ========== FOOTER ========== */
 .footer {
     text-align: center;
@@ -567,11 +804,19 @@ audio::-webkit-media-controls-panel {
     color: #888;
     padding-top: 10px;
     letter-spacing: 0.5px;
+    animation: fadeIn 2s ease-out;
 }
 
 .footer span {
     color: #d96c2b;
     font-weight: 700;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer span:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 20px rgba(217, 108, 43, 0.2);
 }
 
 /* ========== LIGHTBOX ========== */
@@ -589,6 +834,7 @@ audio::-webkit-media-controls-panel {
     justify-content: center;
     z-index: 1000;
     padding: clamp(16px, 4vw, 30px);
+    animation: fadeIn 0.3s ease-out;
 }
 
 .lightbox-content {
@@ -605,26 +851,12 @@ audio::-webkit-media-controls-panel {
 @keyframes zoomIn {
     from {
         opacity: 0;
-        transform: scale(0.8);
+        transform: scale(0.8) rotate(-5deg);
     }
     to {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(1) rotate(0deg);
     }
-}
-
-.lightbox-caption {
-    color: #f0ece8;
-    background: rgba(50, 46, 42, 0.6);
-    padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 32px);
-    border-radius: 50px;
-    font-size: clamp(0.85rem, 1.8vw, 1.05rem);
-    margin-top: 20px;
-    max-width: 85%;
-    text-align: center;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(230, 222, 216, 0.15);
-    word-break: break-word;
 }
 
 .lightbox-close {
@@ -649,7 +881,7 @@ audio::-webkit-media-controls-panel {
 
 .lightbox-close:hover {
     color: #d96c2b;
-    transform: rotate(90deg);
+    transform: rotate(90deg) scale(1.1);
     background: rgba(217, 108, 43, 0.15);
 }
 
@@ -793,11 +1025,10 @@ audio::-webkit-media-controls-panel {
         top: 12px;
         right: 12px;
     }
-    
-    .lightbox-caption {
-        font-size: 0.8rem;
-        padding: 8px 16px;
-        max-width: 92%;
+
+    .icon-kontak {
+        width: 18px;
+        height: 18px;
     }
 }
 
@@ -933,6 +1164,7 @@ audio::-webkit-media-controls-panel {
     
     .foto-profil img:hover {
         transform: none;
+        animation-play-state: running;
     }
     
     .foto-profil img:active {
