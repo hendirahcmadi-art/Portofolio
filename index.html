@@ -10,7 +10,7 @@
 
     <div class="container">
 
-        <h1>I'm, <span>Designer</span></h1>
+        <h1>Hello..., <span>I'm Designer</span></h1>
 
         <hr />
 
@@ -74,14 +74,14 @@
 
         <!-- ====== MENU MUSIK ====== -->
         <div class="menu-musik">
-            <h2>🎵 DAFTAR LAGU</h2>
+            <h2> DAFTAR LAGU</h2>
 
             <!-- Kutipan Inspirasi Musik -->
             <div class="musik-inspirasi">
                 <p class="quote-musik">
-                    "Musik merupakan salah satu sumber inspirasi terbesar dalam setiap karya yang saya ciptakan. 
+                    "Musik adalah salah satu sumber inspirasi terbesar dalam setiap karya yang saya ciptakan. 
                     Dari melodi hingga lirik, setiap nada membangkitkan imajinasi dan membentuk alur visual 
-                    yang tak terduga. <span>Biarkan musik mengalir, biarkan inspirasi lahir.</span>"
+                    yang tak terduga." <span>Biarkan musik mengalir, biarkan inspirasi lahir.</span>
                 </p>
             </div>
 
@@ -102,10 +102,6 @@
                         <button class="btn-play" onclick="putarLagu('ENHYPEN - Highway 1009 [320 kbps].mp3', 'Highway 1009')">▶ Play</button>
                     </div>
                     <div class="menu-item">
-                        <span class="menu-name">Moonstruck</span>
-                        <button class="btn-play" onclick="putarLagu('ENHYPEN - Moonstruck [320 kbps].mp3', 'Moonstruck')">▶ Play</button>
-                    </div>
-                    <div class="menu-item">
                         <span class="menu-name">Fate</span>
                         <button class="btn-play" onclick="putarLagu('ENHYPEN - Fate [321 kbps].mp3', 'Fate')">▶ Play</button>
                     </div>
@@ -118,8 +114,8 @@
                         <button class="btn-play" onclick="putarLagu('ENHYPEN - Drunk-Dazed [129 kbps].mp3', 'Drunk-Dazed')">▶ Play</button>
                     </div>
                     <div class="menu-item">
-                        <span class="menu-name">Knife</span>
-                        <button class="btn-play" onclick="putarLagu('ENHYPEN - Knife [321 kbps].mp3', 'Knife')">▶ Play</button>
+                        <span class="menu-name">Brought The Heat Back</span>
+                        <button class="btn-play" onclick="putarLagu('ENHYPEN - Brought The Heat Back [320 kbps].mp3', 'Brought The Heat Back')">▶ Play</button>
                     </div>
                 </div>
             </div>
@@ -167,10 +163,6 @@
                         <span class="menu-name">STYLE</span>
                         <button class="btn-play" onclick="putarLagu('Hearts2Hearts - STYLE [320 kbps].mp3', 'STYLE')">▶ Play</button>
                     </div>
-                    <div class="menu-item">
-                        <span class="menu-name">The Chase</span>
-                        <button class="btn-play" onclick="putarLagu('Hearts2Hearts - The Chase [320 kbps].mp3', 'The Chase')">▶ Play</button>
-                    </div>
                 </div>
             </div>
 
@@ -190,15 +182,29 @@
         <h2>📬 Kontak</h2>
         <div class="kontak-container">
             <div class="kontak-item">
-                <a href="mailto:hendirahcmadi@email.com">📧 hendirahcmadi@email.com</a>
+                <a href="mailto:hendirahcmadi@email.com">
+                    <svg class="icon-kontak" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                    hendirahcmadi@email.com
+                </a>
             </div>
             <div class="kontak-item">
-                <a href="https://www.instagram.com/hndyrch_?igsh=NHF5NnB6MWM1bGQ0" target="_blank">📸 @hndyrch_</a>
+                <a href="https://www.instagram.com/hndyrch_?igsh=NHF5NnB6MWM1bGQ0" target="_blank">
+                    <svg class="icon-kontak" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                    @hndyrch_
+                </a>
             </div>
         </div>
 
         <hr />
 
+        <!-- Footer -->
         <div class="footer">
             &copy; 2026 <span>Hendy Rachmady</span> – Student Designer
         </div>
@@ -209,7 +215,6 @@
     <div id="lightbox" class="lightbox" onclick="tutupLightbox()">
         <span class="lightbox-close">&times;</span>
         <img class="lightbox-content" id="lightboxImg" src="" alt="Gambar" />
-        <div class="lightbox-caption" id="lightboxCaption"></div>
     </div>
 
     <!-- JavaScript -->
@@ -231,12 +236,9 @@
         function bukaLightbox(src) {
             var lightbox = document.getElementById('lightbox');
             var img = document.getElementById('lightboxImg');
-            var caption = document.getElementById('lightboxCaption');
 
             lightbox.style.display = 'flex';
             img.src = src;
-            var namaFile = src.split('/').pop();
-            caption.textContent = namaFile;
         }
 
         function tutupLightbox() {
